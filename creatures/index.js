@@ -1,6 +1,10 @@
 
 const express = require('express')
+const racesRoutes = require('./races/racesRoutes')
 const server = express()
+
+
+server.use('/races', racesRoutes)
 
 server.use('/', (req, res)=>{
     res.status(200).send('Hello from express app running')
