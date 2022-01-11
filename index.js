@@ -4,8 +4,21 @@ const express = require('express');
 const port = 9000;
 const server = express();
 
-server.get('/', (req, res)=> {
-    res.send('hello world!!!!')
+server.get('/hobbits', (req, res)=> {
+    const hobbits = [
+        {
+          id: 1,
+          name: 'Samwise Gamgee',
+        },
+        {
+          id: 2,
+          name: 'Frodo Baggins',
+        },
+      ];
+
+    // res.send('hello world!!!!')
+    // res.status(200).send(hobbits);
+    res.status(200).json(hobbits);
 })
 server.listen(port, ()=> {
     console.log('API Running on port 9000!!!')
@@ -15,3 +28,14 @@ server.listen(port, ()=> {
 // 2> yarn add express
 // 3> npx gitignore node
 // 4> yarn  server  :  npm run server
+
+
+
+/** 
+ * 12> del git cached
+```
+git rm -r --cached .
+git add .
+git commit -m 'update .gitignore'
+```
+*/
