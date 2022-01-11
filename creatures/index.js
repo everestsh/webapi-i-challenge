@@ -1,15 +1,14 @@
-// implement your API here
 
 const express = require('express')
-const useRoutes = require('./useRoutes')
-
 const server = express()
 
-// server.get('/', (req, res)=> res.send('API up and running!'))
-server.use('/users', useRoutes)
+server.use('/', (req, res)=>{
+    res.status(200).send('Hello from express app running')
+})
 
-server.listen(8000, ()=> console.log('API running on port 8000'))
-
+server.listen(8000, ()=>{
+    console.log(`magic happening on port 8000`)
+})
 
 // 1> npm init --y // create package.json
 // 2> yarn add express
