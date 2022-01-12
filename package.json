@@ -4,7 +4,7 @@
   "description": "WEB API I Challenge",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,10 @@
   },
   "homepage": "https://github.com/LambdaSchool/webapi-i-challenge#readme",
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^2.0.15"
   },
   "dependencies": {
+    "express": "^4.17.2",
     "knex": "^0.19.3",
     "sqlite3": "^4.1.0"
   }
