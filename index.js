@@ -9,8 +9,6 @@ server.use(express.json());
 server.get("/", (req, res) => {
   res.send("Hello World");
 });
-//  write custom middleware
-
 
 //http://localhost:8000/hobbits?sortby=name
 server.get("/hobbits", (req, res) => {
@@ -65,6 +63,12 @@ server.delete("/hobbits", (req, res) => {
   // res.json('test delete by endpoint')// work
   res.sendStatus(204);
 }); // DELETE data
+
+//  write custom middleware
+
+server.use(function(req, res){
+    res.status(404).send(`Ain't nobody got time for dat!`)
+})
 
 server.listen(port, () => {
   console.log(`server listening  port ${port}`);
