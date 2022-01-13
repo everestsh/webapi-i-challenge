@@ -6,9 +6,38 @@ const server = express();
 
 server.use(express.json());
 
+//  write custom middleware
+function logger(req, res, next) {
+    console.log(
+      `[${new Date().toISOString()}] ${req.method} to ${req.url} from ${req.get(
+        'Origin'
+      )}`
+    );
+  
+    next();
+  }
+  function atGate(req, res, next){
+      console.log(`At the gate, about to be eaten`)
+      next()
+  }
+  function auth(req, res, next) {
+    if (req.url === '/mellon') {
+      next();
+    } else {
+      res.send('You shall not pass!');
+    }
+  }
+server.use(logger)
+server.use(atGate)
+
 server.get("/", (req, res) => {
   res.send("Hello World");
 });
+server.get('/mellon', auth, (req, res)=> {
+    console.log('Gate opening...')
+    console.log('Inside and safe')
+    res.send('Welcome Traveler!')
+})
 
 //http://localhost:8000/hobbits?sortby=name
 server.get("/hobbits", (req, res) => {
@@ -34,7 +63,7 @@ server.get("/hobbits", (req, res) => {
   const response = hobbits.sort((a, b) => 
    ( a[sortField] < b[sortField] ? -1 : +1)
   );
-  res.status(200).json(hobbits);s
+  res.status(200).json(hobbits);
 });
 let hobbits = [
   {
@@ -64,8 +93,8 @@ server.delete("/hobbits", (req, res) => {
   res.sendStatus(204);
 }); // DELETE data
 
-//  write custom middleware
 
+//  write custom middleware
 server.use(function(req, res){
     res.status(404).send(`Ain't nobody got time for dat!`)
 })
