@@ -1,27 +1,18 @@
 {
   "name": "webapi-i-challenge",
   "version": "1.0.0",
-  "description": "WEB API I Challenge",
+  "description": "``` //  node index.js  //  npx gitignore node //  npm init -y  // creat package.json //  npx eslint --init //  npm i  nodemon  //  npm install express nanoid ```",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LambdaSchool/webapi-i-challenge.git"
+    "server": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "Lambda School",
-  "bugs": {
-    "url": "https://github.com/LambdaSchool/webapi-i-challenge/issues"
-  },
-  "homepage": "https://github.com/LambdaSchool/webapi-i-challenge#readme",
-  "devDependencies": {
-    "nodemon": "^1.19.1"
-  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "express": "^4.17.2",
-    "knex": "^0.19.3",
-    "sqlite3": "^4.1.0"
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
   }
 }
